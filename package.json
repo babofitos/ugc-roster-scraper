@@ -1,6 +1,6 @@
 {
   "name": "ugc-roster-scraper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "scrape ugc team's roster for steamids",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,10 @@
   "devDependencies": {
     "nodemon": "*"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babofitos/ugc-roster-scraper.git"
+  },
   "keywords": [
     "ugc",
     "highlander",

@@ -22,7 +22,13 @@ Parser.prototype.getSID = function(clanid, cb) {
       var match = this.text().match(/\d:\d:\d+/)
 
       if (match) matches.push(match[0])
-      if (index === total-1) cb(null, matches)
+      if (index === total-1) {
+        if (matches.length <= 0) {
+          cb('No team found')
+        } else {
+          cb(null, matches)
+        }
+      }
     })
   }
   request(Parser.baseURL + clanid, getHTML)
