@@ -1,6 +1,6 @@
 {
   "name": "ugc-roster-scraper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "scrape ugc team's roster for steamids",
   "main": "index.js",
   "scripts": {

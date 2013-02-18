@@ -2,19 +2,16 @@ var cheerio = require('cheerio')
   , request = require('request')
   , $
 
-module.exports = function(clanid) {
-  return new Parser(clanid)
-}
+module.exports = new Parser()
 
-function Parser(clanid) {
-  if (typeof clanid === 'number') {
-    clanid = clanid.toString()
-  }
-  this.clanid = clanid
+function Parser() {
 }
 
 Parser.baseURL = 'http://www.ugcleague.com/team_page.cfm?clan_id='
-Parser.prototype.getSID = function(cb) {
+Parser.prototype.getSID = function(clanid, cb) {
+  if (typeof clanid === 'number') {
+    clanid = clanid.toString()
+  }
   function getHTML(err, res, body) {
     if (err) cb(err)
     $ = cheerio.load(body)
@@ -28,5 +25,5 @@ Parser.prototype.getSID = function(cb) {
       if (index === total-1) cb(null, matches)
     })
   }
-  request(Parser.baseURL + this.clanid, getHTML)
+  request(Parser.baseURL + clanid, getHTML)
 }
